@@ -16,14 +16,7 @@ li {
   float:left;
 }
 
-li a.first {
+li a{
   display: block;
-  padding: 8px, 8px, 8px, 40px; /*top right bottom left*/
+  padding: 8px, 8px, 8px, 8px; /*top right bottom left*/
   color:#0000FF;
-}
-
-li a.rest {
-  display: block;
-  padding: 8px; /*top right bottom left*/
-  color:#0000FF;
-}
