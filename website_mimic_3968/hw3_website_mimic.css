@@ -18,9 +18,9 @@ li {
 
 li a{
   display: block;
-  padding: 7px 7px 9px 6px; /*top right bottom left*/
+  padding: 7px 6px 9px 6px; /*top right bottom left*/
   color:#0000e6;
   text-decoration: none;
   font-family: 'Archivo Narrow', sans-serif;
-  font-size:17px
+  font-size:18px
 }
