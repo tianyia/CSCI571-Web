@@ -3,3 +3,27 @@ h1 {
 	font-family: 'Lora', serif;
 	text-align: center;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#FAEBD7;
+}
+
+li {
+  display: inline;
+}
+
+li a.first {
+  display: block;
+  padding: 8px, 8px, 8px, 40px; /*top right bottom left*/
+  color:#0000FF;
+}
+
+li a.rest {
+  display: block;
+  padding: 8px; /*top right bottom left*/
+  color:#0000FF;
+}
