@@ -1,45 +1,56 @@
 h1.head {
-      color: #00008B;
-      font-family: 'Lora', serif;
-      padding-left:360px;
-    }
+  color: #00008B;
+  font-family: 'Lora', serif;
+  font-size:36px;
+  padding-left:360px;
+}
 
-      ul {
-        list-style-type: none;
-        margin-left: -8px;
-            margin-right: -200px;
-        padding: 0 0 0 65px;
-        overflow: hidden;
-        background-color:#F8ECD4;
-    }
+ul {
+  list-style-type: none;
+  margin-left: -8px;
+  margin-right: -200px;
+  padding: 0 0 0 65px;
+  overflow: hidden;
+  background-color:#F8ECD4;
+}
 
-      li {
-        float:left;
-    }
+li {
+  float:left;
+}
 
-      li a{
-        display: block;
-        padding: 5px 7px 11px 7px; /*top right bottom left*/
-        color:#0000e6;
-            text-decoration: none;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size:17px
-          }
+li a{
+  display: block;
+  padding: 5px 7px 11px 7px; /*top right bottom left*/
+  color:#0000e6;
+  text-decoration: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size:17px;
+}
           
-          div.image{
-            margin: 30px 0 0 70px;
-            background-image: url("https://tianyia.github.io/website_mimic_3968/restaurant.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-            background-size:cover;
-            height:485px;
-            width:820px;
-            }
-          h1.greeting{
-            color:#fafad4;
-      font-family: 'Old Standard TT', serif;
-            font-size: 47px;
-            padding-top:157px;
-            padding-left:195px;
-            
-          }
+div.image{
+  margin: 30px 0 0 70px;
+  height:475px;
+  width:810px;
+  background-image: url("https://tianyia.github.io/website_mimic_3968/restaurant.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:920px 670px; /*width height*/
+}
+
+h1.greeting{
+  color:#fafad4;
+  font-family: 'Old Standard TT', serif;
+  font-size: 49.5px;
+  padding-top:154px;
+  padding-left:160px;
+}
+p.reservation{
+  display: inline-block;
+  padding: 5px 14px 8px 14px; /*top right bottom left*/
+  margin-top: -7px;
+  margin-left: 500px;
+  border: 4px double;
+  background-color: white;
+  font-size: 15px;
+  font-stretch: condensed;
+}
