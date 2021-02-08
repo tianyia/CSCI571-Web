@@ -1,4 +1,8 @@
+body {
+  width:1000px;
+}
 h1.head {
+  display:inline;
   color: #00008B;
   font-family: 'Lora', serif;
   font-size:36px;
@@ -44,6 +48,7 @@ h1.greeting{
   padding-top:154px;
   padding-left:160px;
 }
+
 a.reservation{
   display: inline-block;
   padding: 5px 14px 8px 14px; /*top right bottom left*/
@@ -54,4 +59,65 @@ a.reservation{
   font-size: 15px;
   color:black;
   text-decoration: none;
+}
+
+p.explore_cuisine{
+  display: inline-block;
+  margin-top:30px;
+  margin-left: 300px;
+  color:#7c077d;
+  font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  font-size: 26px;
+  font-weight:900;
+  text-decoration-line:underline;
+  text-decoration-style: double;
+}
+
+div.dish_section{
+  margin-left: 70px;
+  overflow: hidden;
+}
+
+div.pinkbg{
+  background-color: #ffe4e0;
+  height:320px;
+  width:400px;
+  padding:12px;
+  float:left;
+}
+
+div.bluebg{
+  background-color: #afd9e4;
+  height:320px;
+  width:400px;
+  padding:12px;
+  float:left;
+}
+
+img.cuisines{
+  display:block;
+  height:100%;
+  width:100%;
+}
+div.description{
+  height:320px;
+  width:400px;
+  padding:12px;
+  float:left;
+  display:flex;
+  align-items: center;/*vertical center stretch center start end*/
+  justify-content: center;/*horizontal center  flex-start flex-end center space-between space-around space-evenly*/
+  /*flex-direction: column will swap the function of align-itens and justify-content*/;
+}
+div.description.blue{ /*no space*/
+  justify-content:flex-start;
+}
+p.description{
+  display:inline-block;
+  font-family: 'Times New Roman';
+  font-weight:500; /*100-900*/
+}
+span{
+  font-weight:900;
+  color:#2045b4;
 }
