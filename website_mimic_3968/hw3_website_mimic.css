@@ -80,16 +80,16 @@ div.dish_section{
 
 div.pinkbg{
   background-color: #ffe4e0;
-  height:320px;
-  width:400px;
+  height:270px;
+  width:360px;
   padding:12px;
   float:left;
 }
 
 div.bluebg{
   background-color: #afd9e4;
-  height:320px;
-  width:400px;
+  height:270px;
+  width:360px;
   padding:12px;
   float:left;
 }
@@ -100,8 +100,8 @@ img.cuisines{
   width:100%;
 }
 div.description{
-  height:320px;
-  width:400px;
+  height:270px;
+  width:360px;
   padding:12px;
   float:left;
   display:flex;
