@@ -34,3 +34,11 @@ h1 {
             height:465px;
             width:820px;
             }
+            
+          h1.greeting{
+            color:#fafad4;
+            font-family: 'Lora', serif;
+            padding-top:155px;
+            padding-left:200px;
+            
+          }
