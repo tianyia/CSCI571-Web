@@ -1,5 +1,5 @@
-body {
-  width:800px;
+html, body {
+  width:1000px;
   overflow-x:hidden;
 }
 h1.head {
