@@ -78,6 +78,10 @@ div.dish_section{
   overflow: hidden;
 }
 
+div.dish_section.interval{
+  margin-top: 55px;
+}
+
 div.pinkbg{
   background-color: #ffe4e0;
   height:270px;
