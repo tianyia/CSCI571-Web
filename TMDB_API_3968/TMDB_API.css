@@ -1,1 +1,54 @@
+body 
+{
+	background-color: black;
+}
 
+h1
+{
+	color:#b0271d;
+}
+
+div.nav_bar
+{
+	float: left;
+	margin-left: 200px;
+	height:100vh;
+	border-right-style: solid;
+	border-right-width: thin;
+	border-right-color: white;
+    display: inline-block;
+    float: left;
+}
+
+button.tab
+{
+	display: block;
+	text-align: left;
+	color:white;
+	font-size: 18px;
+	border:none;
+	background-color: transparent;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+div.line
+{
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: white;
+	margin-right: -1px
+}
+
+div.content{
+	border:solid white;
+	margin-left: 200px;
+	width:700px;
+    display: inline-block;
+    float: left;
+}
+
+div p
+{
+	color:white;
+}
