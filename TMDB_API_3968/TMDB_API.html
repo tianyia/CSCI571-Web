@@ -8,9 +8,17 @@
 		<h1>THE MOVIE DB</h1>
 
 		<div class="nav_bar">
-  			<button class="tab" onclick="" id="default">Home<span>&#8594;</span></button>
+
+  			<button class="tab active" onclick="switch_tab(event, 'Home')">
+  				Home&nbsp;&nbsp;<span class="arrow">&#10230</span>
+  			</button>
+
   			<div class="line"></div>
-  			<button class="tab" onclick="">Search<span>&#8594;</span></button>
+
+  			<button class="tab" onclick="switch_tab(event, 'Search')">
+  				Search<span class="arrow">&#10230</span>
+  			</button>
+
 		</div>
 
 		<div id="Home" class="content">
@@ -19,6 +27,7 @@
 		</div>
 
 		<div id="Search" class="content">
+			<p>Search page</p>
 		</div>
 
 		<script src="TMDB_API.js"></script>
