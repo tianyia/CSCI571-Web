@@ -10,9 +10,11 @@ h1
 
 div.nav_bar
 {
+	display:inline-block;
 	float: left;
 	margin-left: 200px;
 	height:100vh;
+	width:170px;
 	border-right-style: solid;
 	border-right-width: thin;
 	border-right-color: white;
@@ -22,7 +24,7 @@ div.nav_bar
 
 button.tab
 {
-	display: block;
+	display:inline-block;
 	text-align: left;
 	color:white;
 	font-size: 18px;
@@ -30,6 +32,28 @@ button.tab
 	background-color: transparent;
 	margin-top: 20px;
 	margin-bottom: 20px;
+   	outline:none;
+}
+.tab:hover
+{
+	color:#b0271d;
+    cursor: pointer;
+}
+.tab.active /*.class1 .class2 class1->class2   .class1.class2 class1 and class2*/
+{
+	color:#b0271d;
+}
+
+.arrow
+{
+	text-align: right;
+	display:inline-block;
+	float:right;
+	transform:scale(2,1);
+	margin-top:3px;
+	margin-right: 28px;
+	margin-left: 40px;
+	padding-right: 0px;
 }
 
 div.line
