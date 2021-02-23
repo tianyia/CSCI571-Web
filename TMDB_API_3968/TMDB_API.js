@@ -24,3 +24,19 @@ function switch_tab(evt, content_name)
   	
   	evt.currentTarget.className += " active";
 }
+
+function get_home_pics()
+{
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() 
+  {
+    if (xhttp.readyState == 4 && xhttp.status == 200) 
+    {
+      document.getElementById("Home_img1").innerHTML = xhttp.responseText;
+    }
+  };
+
+  xhttp.open("GET", "server address", true);
+  xhttp.send();
+}
