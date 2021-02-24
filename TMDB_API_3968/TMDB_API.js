@@ -19,12 +19,13 @@ function switch_tab(evt, content_name)
   	tab = document.getElementsByClassName("tab");
 	for (var i = 0; i < 2; i++) 
 	{
-		tab[i].className = tab[i].className.replace(" active", ""); /*string method .replace*/
+		tab[i].className = tab[i].className.replace(" active", ""); //string method .replace
 	}
   	
   	evt.currentTarget.className += " active";
 }
 
+get_home_pics();
 function get_home_pics()
 {
   var xhttp = new XMLHttpRequest();
@@ -33,15 +34,17 @@ function get_home_pics()
   {
     if (xhttp.readyState == 4 && xhttp.status == 200) /*request state and server status*/
     {
-      	var Home_img1 = document.getElementsByClassName("Home_img1")
-		for (var i = 0; i < 5; i++) 
-		{
-			Home_img1[i].src = "link for image";/*this.responseText;*/
-		}
+      	//var Home_img1 = document.getElementsByClassName("Home_img1");
+		//for (var i = 0; i < 5; i++) 
+		//{
+			//Home_img1[i].src = "link for image"; //this.responseText;
+		//}
+		var test = document.getElementsByClassName("test");
+		test.innerHTML = this.responseText;
     }
   };
 
-  xhttp.open("GET", "server address", true);
+  xhttp.open("GET", "http://localhost:5000/", true);
   xhttp.send();
 }
 
