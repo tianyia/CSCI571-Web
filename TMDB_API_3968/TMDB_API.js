@@ -50,7 +50,7 @@ function get_home_pics()
 
 var slide_ind = 0
 
-function Home_slideshow
+/*function Home_slideshow
 {
 	var Home_slide1 = document.getElementsByClassName("Home_slide1");
 	var Home_slide2 = document.getElementsByClassName("Home_slide2");
@@ -61,5 +61,5 @@ function Home_slideshow
   	}
   	Home_slide1[slide_ind].style.display = "block";
   	Home_slide2[slide_ind].style.display = "block";
-  	setTimeout(Home_slideshow, 5000); /*change every 5 seconds*/
-}
+  	setTimeout(Home_slideshow, 5000); //change every 5 seconds
+}*/
