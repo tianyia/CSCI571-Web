@@ -38,7 +38,7 @@ function get_home_pics()
 		//{
 			//Home_img1[i].src = "link for image"; //this.responseText;
 		//}
-		var test = document.getElementsByClassName("test");
+		var test = document.getElementsByClassName("test"); //getElements returns array like data
 		test[0].innerHTML = this.responseText;
     }
   };
