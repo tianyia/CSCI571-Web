@@ -39,7 +39,7 @@ function get_home_pics()
 			//Home_img1[i].src = "link for image"; //this.responseText;
 		//}
 		var test = document.getElementsByClassName("test");
-		test.innerHTML = this.responseText;
+		test[0].innerHTML = this.responseText;
     }
   };
 
