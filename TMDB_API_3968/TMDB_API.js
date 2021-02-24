@@ -25,7 +25,6 @@ function switch_tab(evt, content_name)
   	evt.currentTarget.className += " active";
 }
 
-get_home_pics();
 function get_home_pics()
 {
   var xhttp = new XMLHttpRequest();
@@ -47,6 +46,7 @@ function get_home_pics()
   xhttp.open("GET", "http://localhost:5000/", true);
   xhttp.send();
 }
+get_home_pics();
 
 var slide_ind = 0
 
