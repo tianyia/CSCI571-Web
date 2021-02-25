@@ -17,7 +17,7 @@ div.nav_bar
 	display:inline-block;
 	float: left;
 	margin-left: 200px;
-	height:100vh;
+	height:1500px;
 	width:170px;
 	border-right-style: solid;
 	border-right-width: thin;
@@ -43,7 +43,7 @@ button.tab
 	color:#b0271d;
     cursor: pointer;
 }
-.tab.active /*.class1 .class2 class1->class2   .class1.class2 class1 and class2*/
+.tab.active /*.class1 .class2 class1->class2   .class1.class2 and    .class1, .class2 or*/
 {
 	color:#b0271d;
 }
@@ -69,19 +69,47 @@ div.line
 }
 
 div.content{
-	border:solid white;
-	margin-left: 200px;
-	width:700px;
+	margin-left: 150px;
     display: inline-block;
     float: left;
 }
-
-div p
+p.heading
 {
+	text-align: center;
 	color:white;
+	font-size: 25px;
 }
 
-img.Home_img1
+
+.Home_slide1, .Home_slide2
 {
+	display:block;
+	margin-bottom: 100px;
+	height:100%;
+}
+
+.Home_figure1, .Home_figure2
+{
+	height:100%
+	width:100%;
+	position:relative; /*parent div need to set this to eable relative absolute in lower level*/
+}
+
+.Home_img1, .Home_img2
+{
+	margin-bottom: 0px;
+}
+
+.Home_des1, .Home_des2
+{
+	text-align: center;
+	color:white;
+	position: absolute;
 	width:780px;
+	left:0px;
+	bottom:0px; /*made a mistake: Home_des2 was in <p> while Home_des1 was in <div>, so had to assign different bottom*/
+	background-color: rgba(0,0,0,0.8);
+	height:100px; /*vertical align*/
+	line-height: 100px;
+	font-size: 20px;
 }
