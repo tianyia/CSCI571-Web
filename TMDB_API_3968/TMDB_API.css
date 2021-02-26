@@ -26,7 +26,7 @@ div.nav_bar
 	display:inline-block;
 	margin-left: 200px;
 	top:46px;
-	height:calc( 100% - 46px ); /*46 calculated by trying*/
+	height:calc( 100% + 4px ); /*46 calculated by trying*/
 	width:170px;
 	border-right-style: solid;
 	border-right-width: thin;
@@ -79,8 +79,8 @@ div.content
 {	/*Absolutely positioned elements are completely removed from the document flow, and thus their dimensions cannot alter the dimensions of their parents*/
 	position:relative; /*important!! solved content height exceeding body height problem*/
 	margin-left: 550px;
+	width:780px;
     display: block;
-    height:100%;
 }
 
 p.heading
@@ -91,11 +91,13 @@ p.heading
 	width:780px;
 }
 
-
+.Home_slide1
+{
+	margin-bottom: 70px;
+}
 .Home_slide1, .Home_slide2
 {
 	display:block;
-	margin-bottom: 100px;
 }
 
 .Home_figure1, .Home_figure2
@@ -124,11 +126,11 @@ p.heading
 
 div.footer
 {
-	display:inline-block;
+	display:block;
 	position:absolute; /*fixed relative to initial containing block always viewable*/
-	margin:1px;
+	margin-top:0px;
 	height:50px;
-	bottom:0px;
+	/*bottom:0px;*/
 	right:0px;
 	background-color: #611610;
 	width:1120px;
