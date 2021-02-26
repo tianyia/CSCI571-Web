@@ -3,27 +3,35 @@ body
 	background-color: black;
 }
 html, body {
-  width:1500px;
-  overflow-x:hidden;
+  /*width:1500px*/
+  min-height:100vh; /*setting overflow-x:hidden will cause 2 vertical sliders*/
+  min-width: 100vh;
+  position:relative; /*important for footer absolute to work!!*/
+  height:auto;
 }
 
 h1
 {
+	margin:0;
+	padding:0;
 	color:#b0271d;
+    background: linear-gradient(to right, black 70%, #b0271d 100%)
 }
 
+/*The floated elements do not add to the height of the container element, and hence if you don't clear them, container height won't increase*/
 div.nav_bar
 {
+	/*setting height to percentage need parent height defined*/
+	position:absolute;
 	display:inline-block;
-	float: left;
 	margin-left: 200px;
-	height:1500px;
+	top:46px;
+	height:calc( 100% - 46px ); /*46 calculated by trying*/
 	width:170px;
 	border-right-style: solid;
 	border-right-width: thin;
 	border-right-color: white;
     display: inline-block;
-    float: left;
 }
 
 button.tab
@@ -52,7 +60,6 @@ button.tab
 {
 	text-align: right;
 	display:inline-block;
-	float:right;
 	transform:scale(2,1);
 	margin-top:3px;
 	margin-right: 28px;
@@ -68,16 +75,21 @@ div.line
 	margin-right: -1px
 }
 
-div.content{
-	margin-left: 150px;
-    display: inline-block;
-    float: left;
+div.content
+{	/*Absolutely positioned elements are completely removed from the document flow, and thus their dimensions cannot alter the dimensions of their parents*/
+	position:relative; /*important!! solved content height exceeding body height problem*/
+	margin-left: 550px;
+    display: block;
+    border:solid white;
+	width:780px;
 }
+
 p.heading
 {
 	text-align: center;
 	color:white;
 	font-size: 25px;
+	width:780px;
 }
 
 
@@ -85,13 +97,10 @@ p.heading
 {
 	display:block;
 	margin-bottom: 100px;
-	height:100%;
 }
 
 .Home_figure1, .Home_figure2
 {
-	height:100%
-	width:100%;
 	position:relative; /*parent div need to set this to eable relative absolute in lower level*/
 }
 
@@ -104,7 +113,7 @@ p.heading
 {
 	text-align: center;
 	color:white;
-	position: absolute;
+	position: absolute; /*relative to closest ancestor*/
 	width:780px;
 	left:0px;
 	bottom:0px; /*made a mistake: Home_des2 was in <p> while Home_des1 was in <div>, so had to assign different bottom*/
@@ -112,4 +121,14 @@ p.heading
 	height:100px; /*vertical align*/
 	line-height: 100px;
 	font-size: 20px;
+}
+
+.footer
+{
+	display:inline-block;
+	border:solid white;
+	position:absolute; /*fixed relative to initial containing block always viewable*/
+	margin:0;
+	height:50px;
+	bottom:0px;
 }
