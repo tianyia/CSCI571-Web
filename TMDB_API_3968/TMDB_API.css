@@ -80,7 +80,6 @@ div.content
 	position:relative; /*important!! solved content height exceeding body height problem*/
 	margin-left: 550px;
     display: block;
-    border:solid white;
 	width:780px;
 }
 
@@ -125,10 +124,11 @@ p.heading
 
 .footer
 {
-	display:inline-block;
+	display:block;
 	border:solid white;
 	position:absolute; /*fixed relative to initial containing block always viewable*/
-	margin:0;
+	margin:1px;
 	height:50px;
 	bottom:0px;
+	right:0px;
 }
