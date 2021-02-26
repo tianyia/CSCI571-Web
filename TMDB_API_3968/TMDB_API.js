@@ -34,7 +34,6 @@ function get_home_pics()
     if (xhttp.readyState == 4 && xhttp.status == 200) /*request state and server status*/
     {
     	var image_data = JSON.parse(this.responseText)
-		alert(this.responseText);
       	var Home_img1 = document.getElementsByClassName("Home_img1");
       	var Home_img2 = document.getElementsByClassName("Home_img2");
 
