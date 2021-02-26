@@ -34,6 +34,7 @@ function get_home_pics()
     if (xhttp.readyState == 4 && xhttp.status == 200) /*request state and server status*/
     {
     	var image_data = JSON.parse(this.responseText)
+		alert(this.responseText);
       	var Home_img1 = document.getElementsByClassName("Home_img1");
       	var Home_img2 = document.getElementsByClassName("Home_img2");
 
@@ -43,6 +44,7 @@ function get_home_pics()
 		{
 			Home_img1[i].src = "https://image.tmdb.org/t/p/w780" + image_data[i]['backdrop_path'];
 			Home_img2[i].src = "https://image.tmdb.org/t/p/w780" + image_data[i+5]['backdrop_path'];
+
 
 			Home_des1[i].innerHTML = image_data[i]['title'] + "(" + image_data[i]['release_date'].slice(0,4) + ")";
 			Home_des2[i].innerHTML = image_data[i+5]['name'] + "(" + image_data[i+5]['first_air_date'].slice(0,4) + ")";
@@ -54,7 +56,7 @@ function get_home_pics()
     }
   };
 
-  xhttp.open("GET", "http://localhost:5000/home", true);
+  xhttp.open("GET", "http://127.0.0.1:5000/home", true);
   xhttp.send();
 }
 get_home_pics();
