@@ -15,7 +15,7 @@ h1
 	margin:0;
 	padding:0;
 	color:#b0271d;
-    background: linear-gradient(to right, black 70%, #b0271d 100%)
+    background: linear-gradient(to right, black 70%, #b0271d 100%);
 }
 
 /*The floated elements do not add to the height of the container element, and hence if you don't clear them, container height won't increase*/
@@ -150,3 +150,43 @@ p.footer
 }
 
 /* border:solid white;  for debug*/
+
+div.search_block
+{
+	background: linear-gradient(to top, black 10%, #b0271d 95%);
+	height:400px;
+	padding-top: 10px;
+}
+
+.form
+{
+	margin-left:180px;
+}
+
+.input_box
+{
+  border-radius: 5px;
+}
+
+#Search
+{
+	margin-left: 400px;
+}
+
+#keyword
+{
+	margin-left:3px;
+	width:300px;
+}
+
+#submit_button
+{
+	margin-top:10px;
+	margin-left:100px;
+}
+
+#clear_button
+{
+	margin-top:10px;
+	margin-left:110px;
+}
