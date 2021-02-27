@@ -73,7 +73,27 @@
 		</div>
 
 		<div id="Search" class="content" style="display:none;">
-			<p class = "heading">Search page</p>
+			<div class="search_block">
+				<p class = "heading">Search</p>
+				<form class="form">
+					<label for="keyword" style="color:white;">Keyword<span style="color:red;">*</span></label>
+					<input type="text" id="keyword" class="input_box">
+					<br>
+					<br>
+					<label for="Category" style="color:white;">Category<span style="color:red;">*</span></label>
+					<select class="input_box" id="Category">
+						<option value="&nbsp;">&nbsp;</option>
+						<option value="Movies">Movies</option>
+						<option value="TV Shows">TV Shows</option>
+						<option value="Movies and TV Shows">Movies and TV Shows</option>
+					</select>
+					<br>
+					<br>
+  					<input type="submit" value="Search" id="submit_button">
+  					<input type="reset" value="Clear" id="clear_button"> 
+  					<!--type can also be button-->
+				</form>
+			</div>
 		</div>
 
 		<div class="footer">
