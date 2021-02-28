@@ -153,19 +153,20 @@ p.footer
 
 div.search_block
 {
-	background: linear-gradient(to top, black 10%, #b0271d 95%);
-	height:400px;
+	background: linear-gradient(to top, black 0%, #b0271d 80%);
+	height:300px;
+	width:1000px;
 	padding-top: 10px;
 }
 
 .form
 {
-	margin-left:180px;
+	margin-left:300px;
 }
 
 .input_box
 {
-  border-radius: 5px;
+  	border-radius: 5px;
 }
 
 #Search
@@ -189,4 +190,13 @@ div.search_block
 {
 	margin-top:10px;
 	margin-left:110px;
+}
+
+#submit_button, #clear_button
+{
+	background-color: black;
+	border:none;
+	color:white;
+	height:30px;
+  	border-radius: 5px;
 }
