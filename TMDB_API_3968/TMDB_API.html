@@ -74,15 +74,16 @@
 
 		<div id="Search" class="content" style="display:none;">
 			<div class="search_block">
-				<p class = "heading">Search</p>
-				<form class="form">
+				<p class = "heading" style="padding-left: 100px;">Search</p>
+
+				<form class="form" action="javascript:search_result(keyword.value, Category.value)">
 					<label for="keyword" style="color:white;">Keyword<span style="color:red;">*</span></label>
-					<input type="text" id="keyword" class="input_box">
+					<input type="text" id="keyword" class="input_box" name="keyword">
 					<br>
 					<br>
 					<label for="Category" style="color:white;">Category<span style="color:red;">*</span></label>
-					<select class="input_box" id="Category">
-						<option value="&nbsp;">&nbsp;</option>
+					<select class="input_box" id="Category" name="Category">
+						<option value=" ">&nbsp;</option>
 						<option value="Movies">Movies</option>
 						<option value="TV Shows">TV Shows</option>
 						<option value="Movies and TV Shows">Movies and TV Shows</option>
@@ -93,6 +94,7 @@
   					<input type="reset" value="Clear" id="clear_button"> 
   					<!--type can also be button-->
 				</form>
+
 			</div>
 		</div>
 
