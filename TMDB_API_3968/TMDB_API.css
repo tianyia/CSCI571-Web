@@ -200,3 +200,7 @@ div.search_block
 	height:30px;
   	border-radius: 5px;
 }
+#submit_button:hover, #clear_button:hover
+{
+	background-color: red;
+}
