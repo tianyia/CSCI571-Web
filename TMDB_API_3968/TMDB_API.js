@@ -100,6 +100,7 @@ function search_result(keyword, Category)
     		if (xhttp.readyState == 4 && xhttp.status == 200) /*request state and server status*/
     		{
     			var search_data = JSON.parse(this.responseText);
+    			create_search_result(search_data);
     		}
   		};
 
@@ -108,4 +109,9 @@ function search_result(keyword, Category)
   		xhttp.open("GET", "http://127.0.0.1:5000/search"+"/"+Category+"/"+keyword, true);
   		xhttp.send();
 	}
+}
+
+function create_search_result(search_data)
+{
+	
 }
