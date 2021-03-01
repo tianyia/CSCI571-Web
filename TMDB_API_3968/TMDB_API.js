@@ -99,25 +99,13 @@ function search_result(keyword, Category)
   		{
     		if (xhttp.readyState == 4 && xhttp.status == 200) /*request state and server status*/
     		{
-    			var search_data = JSON.parse(this.responseText)
-      			var Home_img1 = document.getElementsByClassName("Home_img1");
-      			var Home_img2 = document.getElementsByClassName("Home_img2");
-
-      			var Home_des1 = document.getElementsByClassName("Home_des1");
-      			var Home_des2 = document.getElementsByClassName("Home_des2");
-				for (var i = 0; i < 5; i++) 
-				{
-					Home_img1[i].src = "https://image.tmdb.org/t/p/w780" + image_data[i]['backdrop_path'];
-					Home_img2[i].src = "https://image.tmdb.org/t/p/w780" + image_data[i+5]['backdrop_path'];
-
-
-					Home_des1[i].innerHTML = image_data[i]['title'] + "(" + image_data[i]['release_date'].slice(0,4) + ")";
-					Home_des2[i].innerHTML = image_data[i+5]['name'] + "(" + image_data[i+5]['first_air_date'].slice(0,4) + ")";
-				}
+    			var search_data = JSON.parse(this.responseText);
     		}
   		};
 
-  		xhttp.open("GET", "http://127.0.0.1:5000/search", true);
+  		//var new_keyword = keyword.replace(/ /g, "%20"); //replace all occurences of space with %20
+
+  		xhttp.open("GET", "http://127.0.0.1:5000/search"+"/"+Category+"/"+keyword, true);
   		xhttp.send();
 	}
 }
