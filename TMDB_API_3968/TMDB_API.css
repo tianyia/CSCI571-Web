@@ -10,7 +10,7 @@ html, body {
   height:auto;
 }
 
-h1
+#website_name
 {
 	margin:0;
 	padding:0;
@@ -154,7 +154,7 @@ p.footer
 div.search_block
 {
 	background: linear-gradient(to top, black 0%, #b0271d 80%);
-	height:300px;
+	height:230px;
 	width:1000px;
 	padding-top: 10px;
 }
@@ -203,4 +203,45 @@ div.search_block
 #submit_button:hover, #clear_button:hover
 {
 	background-color: red;
+}
+
+.result_box
+{
+	border:solid white;
+	position:relative;
+	height:260px;
+	width:1000px;
+}
+
+.red_line
+{
+	border:solid white;
+	position:absolute;
+	left:0;
+	height:260px;
+	width:5px;
+	background-color: #b0271d;
+}
+
+.poster
+{
+	border:solid white;
+	position:absolute;
+	left:10px;
+	height:260px;
+	width:180px;
+}
+
+.text_box h3
+{
+	border:solid white;
+}
+.text_box p
+{
+	border:solid white;
+}border:solid white;
+}
+.text_box form
+{
+	border:solid white;
 }
