@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="TMDB_API.css">
 	</head>
 	<body>
-		<h1>THE MOVIE DB</h1>
+		<h1 id="website_name">THE MOVIE DB</h1>
 
 
 		<div class="nav_bar">
@@ -73,6 +73,7 @@
 		</div>
 
 		<div id="Search" class="content" style="display:none;">
+
 			<div class="search_block">
 				<p class = "heading" style="padding-left: 100px;">Search</p>
 
@@ -94,8 +95,24 @@
   					<input type="reset" value="Clear" id="clear_button"> 
   					<!--type can also be button-->
 				</form>
-
 			</div>
+
+			<div class="result_block">
+				<p class="found" style="color:white;">Showing results...</p>
+				<div class="found result_box">
+					<div class="red_line"></div>
+					<div class="poster"></div>
+					<div class="text_box">
+						<h3></h3>
+						<p></p>
+						<p></p>
+						<form>
+							<input type="button" value="Show more">
+						</form>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 		<div class="footer">
