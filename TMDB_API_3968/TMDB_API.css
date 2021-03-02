@@ -154,6 +154,8 @@ p.footer
 div.search_block
 {
 	background: linear-gradient(to top, black 0%, #b0271d 80%);
+	display:block;
+	position:relative;
 	height:230px;
 	width:1000px;
 	padding-top: 10px;
@@ -205,9 +207,17 @@ div.search_block
 	background-color: red;
 }
 
+.result_block
+{
+	display:block;
+	position:relative;
+	height:auto;
+}
+
 .result_box
 {
 	border:solid white;
+	display:block;
 	position:relative;
 	height:260px;
 	width:1000px;
@@ -232,16 +242,39 @@ div.search_block
 	width:180px;
 }
 
+.poster img
+{
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .text_box h3
 {
 	border:solid white;
+	position:absolute;
+	color:white;
+	left:240px;
+	top:5px;
+	width:120px;
 }
 .text_box p
 {
 	border:solid white;
-}border:solid white;
+	position:absolute;
+	color:white;
+	left:240px;
+	top:60px;
+	width:120px;
 }
 .text_box form
 {
+	position:absolute;
+	left:240px;
+	top:200px;
+}
+.text_box input
+{
 	border:solid white;
+	color:white;
+	background-color: #b0271d;
 }
