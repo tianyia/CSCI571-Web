@@ -85,6 +85,23 @@ function Home_slideshow()
 
 Home_slideshow();
 
+function clone_result_bar()
+{
+	var bar = document.getElementsByClassName("result_box");
+	for (var i = 0; i < 9; i++)
+	{
+    	document.getElementsByClassName("result_block")[0].appendChild(bar[0].cloneNode(true));
+	}
+
+	var content = document.getElementsByClassName("result_box");
+	for(var i=0; i<10; i++)
+	{
+		content[i].style.display = "none";
+	}
+
+}
+clone_result_bar();
+
 function search_result(keyword, Category)
 {
 	if(keyword == "" || Category == " ")
@@ -113,5 +130,24 @@ function search_result(keyword, Category)
 
 function create_search_result(search_data)
 {
-	
+	var content = document.getElementsByClassName("result_box");
+	for(var i=0; i<10; i++)
+	{
+		content[i].style.display = "none";
+	}
+
+	if(search_data != " ")
+	{
+		data_num = Object.keys(search_data).length;
+
+		alert(data_num);
+
+		for(var i=0; i<data_num; i++)
+		{
+			content[i].style.display = "block"; //hierarchy access
+			var poster = content[i].getElementsByClassName("poster")[0].getElementsByTagName("img")[0];
+			poster.src = "https://image.tmdb.org/t/p/w185" + search_data[i]['poster_path'];
+
+		}
+	}
 }
