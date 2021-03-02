@@ -147,6 +147,8 @@ function create_search_result(search_data)
 			content[i].style.display = "block"; //hierarchy access
 			var poster = content[i].getElementsByClassName("poster")[0].getElementsByTagName("img")[0];
 			poster.src = "https://image.tmdb.org/t/p/w185" + search_data[i]['poster_path'];
+			if (search_data[i]['poster_path'] == "")
+				poster.src = ""
 
 		}
 	}
