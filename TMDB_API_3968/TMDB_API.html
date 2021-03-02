@@ -77,7 +77,7 @@
 			<div class="search_block">
 				<p class = "heading" style="padding-left: 100px;">Search</p>
 
-				<form class="form" action="javascript:search_result(keyword.value, Category.value)">
+				<form class="form" action="javascript:search_result(keyword.value, Category.value)" onreset="create_search_result(3.14)">
 					<label for="keyword" style="color:white;">Keyword<span style="color:red;">*</span></label>
 					<input type="text" id="keyword" class="input_box" name="keyword">
 					<br> 
@@ -99,13 +99,13 @@
 
 			<div class="result_block">
 				<p class="found" style="color:white;">Showing results...</p>
-				<div class="found result_box">
+				<div class="result_box">
 					<div class="red_line"></div>
 					<div class="poster">
 						<img></img>
 					</div>
 					<div class="text_box">
-						<h3 class="title"></h3>
+						<h3></h3>
 						<p></p>
 						<p></p>
 						<form>
@@ -116,7 +116,7 @@
 			</div>
 
 			<div class="empty"></div>
-			
+
 		</div>
 
 		<div class="footer">
