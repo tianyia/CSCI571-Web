@@ -157,7 +157,7 @@ function create_search_result(search_data)
 				content[i].style.display = "block"; //hierarchy access
 				var poster = content[i].getElementsByClassName("poster")[0].getElementsByTagName("img")[0];
 				poster.src = "https://image.tmdb.org/t/p/w185" + search_data[i]['poster_path'];
-				if (search_data[i]['poster_path'] == "")
+				if (search_data[i]['poster_path'] == "" || search_data[i]['poster_path'] == null)
 					poster.src = "movie_placeholder.png";
 
 				var title = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("h3")[0];
@@ -171,6 +171,12 @@ function create_search_result(search_data)
 
 				text.innerHTML = search_data[i]['overview'];
 
+				//assign class(movie or tv) and id(movie id or tv id) to button attribute
+				var button = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("input")[0];
+				button.class = search_data[i]['class'];
+				button.id = search_data[i]['id'];
+
+
 			}
 		}
 		else
@@ -183,4 +189,26 @@ function create_search_result(search_data)
 	{
 		found[0].style.display = "none";
 	}
+}
+
+function pop_up_result(type, id)
+{
+	var xhttp = new XMLHttpRequest();
+
+ 	xhttp.onreadystatechange = function() /*callback is the function to be executed when the readyState changes*/
+  	{
+    	if (xhttp.readyState == 4 && xhttp.status == 200) /*request state and server status*/
+    	{
+    		var pop_data = JSON.parse(this.responseText);
+    		fill_in_pop_data(pop_data);
+    	}
+  	};
+
+  	xhttp.open("GET", "http://127.0.0.1:5000/pop"+"/"+type+"/"+id, true);
+  	xhttp.send();
+}
+
+function fill_in_pop_data(pop_data)
+{
+	var i = 0;
 }
