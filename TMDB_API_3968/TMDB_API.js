@@ -163,6 +163,14 @@ function create_search_result(search_data)
 				var title = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("h3")[0];
 				title.innerHTML = search_data[i]['title'];
 
+				var score = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("p")[0];
+				var text = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("p")[1];
+
+				score.innerHTML = search_data[i]['day'].slice(0,4) + " | " + search_data[i]['genre_ids'] + "<br>" + "<span style='color:red;'>" + 
+				"&#9733;" + search_data[i]['vote_average'] + "</span>" + " " + search_data[i]['vote_count'] + " votes";
+
+				text.innerHTML = search_data[i]['overview'];
+
 			}
 		}
 		else
