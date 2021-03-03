@@ -167,7 +167,7 @@ function create_search_result(search_data)
 				var text = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("p")[1];
 
 				score.innerHTML = search_data[i]['day'].slice(0,4) + " | " + search_data[i]['genre_ids'] + "<br>" + "<span style='color:red;'>" + 
-				"&#9733;" + search_data[i]['vote_average'] + "</span>" + " " + search_data[i]['vote_count'] + " votes";
+				"&#9733;" + search_data[i]['vote_average'] + "/5</span>" + "  " + search_data[i]['vote_count'] + " votes";
 
 				text.innerHTML = search_data[i]['overview'];
 
