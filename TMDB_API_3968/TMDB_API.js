@@ -212,8 +212,11 @@ function fill_in_pop_data(pop_data)
 {
 	var pop_page = document.getElementsByClassName("pop_up")[0];
 
+	//top details section
 	var image = pop_page.getElementsByClassName("picture")[0];
 	image.src = "https://image.tmdb.org/t/p/w780" + pop_data['detail']['backdrop_path'];
+	if (pop_data['detail']['backdrop_path'] == "" || pop_data['detail']['backdrop_path'] == null)
+		image.src = "movie-placeholder.jpg";
 
 	var title = pop_page.getElementsByTagName("h3")[0];
 	title.innerHTML = pop_data['detail']['title'] + "  <a style='color:red;text-decoration: none;' target='_blank' href='"
@@ -228,6 +231,7 @@ function fill_in_pop_data(pop_data)
 	var cast = pop_page.getElementsByTagName("h3")[1];
 	cast.innerHTML = "Cast";
 
+	//actor section
 	var actor = pop_page.getElementsByClassName("actor24")[0];
 	var actor_profile = actor.getElementsByTagName("img");
 	var actor_des = actor.getElementsByTagName("p");
@@ -235,6 +239,9 @@ function fill_in_pop_data(pop_data)
 	for(var i=0; i<actor_num; i++)
 	{
 		actor_profile[i].src = "https://image.tmdb.org/t/p/w185" + pop_data['credit'][i]['profile_path'];
+		alert(pop_data['credit'][i]['profile_path'])
+		if (pop_data['credit'][i]['profile_path'] == "" || pop_data['credit'][i]['profile_path'] == null)
+			actor_profile[i].src = "person-placeholder.png";
 		actor_des[i].innerHTML = "<span style='font-weight:bold;''>" + pop_data['credit'][i]['name'] + "</span>" + "<br>" + "AS" 
 		+ "<br>" + pop_data['credit'][i]['character'];
 	}
@@ -243,6 +250,7 @@ function fill_in_pop_data(pop_data)
 	review_title.innerHTML = "Reviews";
 	review_title.style.marginTop = "25px";
 
+	//review section
 	var review_div = pop_page.getElementsByClassName("review_box")[0].getElementsByTagName("div");
 	var review_top = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_top");
 	var review_bottom = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_bottom");
@@ -275,6 +283,16 @@ function fill_in_pop_data(pop_data)
 
 function hide_pop_up()
 {
-	pop_page = document.getElementsByClassName("pop_up")[0];
+	var pop_page = document.getElementsByClassName("pop_up")[0];
+
+	var actor = pop_page.getElementsByClassName("actor24")[0];
+	var actor_profile = actor.getElementsByTagName("img");
+	var actor_des = actor.getElementsByTagName("p");
+
+	
+	var review_div = pop_page.getElementsByClassName("review_box")[0].getElementsByTagName("div");
+	var review_top = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_top");
+	var review_bottom = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_bottom");
+
 	pop_page.style.display = "none";
 }
