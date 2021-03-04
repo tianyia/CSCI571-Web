@@ -382,3 +382,10 @@ div.search_block
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
 }
+
+.review_hiding
+{
+	height:auto;
+	position:relative;
+	display:none;
+}
