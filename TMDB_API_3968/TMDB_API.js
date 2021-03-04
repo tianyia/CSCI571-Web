@@ -239,7 +239,6 @@ function fill_in_pop_data(pop_data)
 	for(var i=0; i<actor_num; i++)
 	{
 		actor_profile[i].src = "https://image.tmdb.org/t/p/w185" + pop_data['credit'][i]['profile_path'];
-		alert(pop_data['credit'][i]['profile_path'])
 		if (pop_data['credit'][i]['profile_path'] == "" || pop_data['credit'][i]['profile_path'] == null)
 			actor_profile[i].src = "person-placeholder.png";
 		actor_des[i].innerHTML = "<span style='font-weight:bold;''>" + pop_data['credit'][i]['name'] + "</span>" + "<br>" + "AS" 
@@ -257,7 +256,7 @@ function fill_in_pop_data(pop_data)
 	var review_num = Object.keys(pop_data['review']).length;
 	for(var i=0; i<5; i++)
 	{
-		review_div[i].className = "";
+		review_div[i].className = "review_hiding";
 	}
 	for(var i=0; i<review_num; i++)
 	{
@@ -288,11 +287,18 @@ function hide_pop_up()
 	var actor = pop_page.getElementsByClassName("actor24")[0];
 	var actor_profile = actor.getElementsByTagName("img");
 	var actor_des = actor.getElementsByTagName("p");
+	for(var i=0; i<8; i++)
+	{
+		actor_profile[i].removeAttribute("src");
+		actor_des[i].innerHTML = "";
+	}
 
 	
 	var review_div = pop_page.getElementsByClassName("review_box")[0].getElementsByTagName("div");
-	var review_top = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_top");
-	var review_bottom = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_bottom");
+	for(vari=0; i<5; i++)
+	{
+		review_div[i].className = "review_hiding";
+	}
 
 	pop_page.style.display = "none";
 }
