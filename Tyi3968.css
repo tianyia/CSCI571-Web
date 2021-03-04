@@ -5,5 +5,5 @@ html, body
 .link_box
 {
 	border: 2px solid orange;
-	background-color: gray;
+	background-color: silver; /*silver lightgray*/
 }
