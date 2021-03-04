@@ -210,5 +210,70 @@ function pop_up_result(type, id)
 
 function fill_in_pop_data(pop_data)
 {
-	var i = 0;
+	var pop_page = document.getElementsByClassName("pop_up")[0];
+
+	var image = pop_page.getElementsByClassName("picture")[0];
+	image.src = "https://image.tmdb.org/t/p/w780" + pop_data['detail']['backdrop_path'];
+
+	var title = pop_page.getElementsByTagName("h3")[0];
+	title.innerHTML = pop_data['detail']['title'];
+
+	var text = pop_page.getElementsByTagName("p");
+	text[0].innerHTML = pop_data['detail']['day'].slice(0,4) + " | " + pop_data['detail']['genres'] + "<br><br>" + "<span style='color:red;'>" + 
+				"&#9733;" + pop_data['detail']['vote_average'] + "/5</span>" + "  " + pop_data['detail']['vote_count'] + " votes";
+	text[1].innerHTML = pop_data['detail']['overview'];
+	text[2].innerHTML = "Spoken languages: " + pop_data['detail']['spoken_languages'];
+
+	var cast = pop_page.getElementsByTagName("h3")[1];
+	cast.innerHTML = "Cast";
+
+	var actor = pop_page.getElementsByClassName("actor24")[0];
+	var actor_profile = actor.getElementsByTagName("img");
+	var actor_des = actor.getElementsByTagName("p");
+	var actor_num = Object.keys(pop_data['credit']).length;
+	for(var i=0; i<actor_num; i++)
+	{
+		actor_profile[i].src = "https://image.tmdb.org/t/p/w185" + pop_data['credit'][i]['profile_path'];
+		actor_des[i].innerHTML = "<span style='font-weight:bold;''>" + pop_data['credit'][i]['name'] + "</span>" + "<br>" + "AS" 
+		+ "<br>" + pop_data['credit'][i]['character'];
+	}
+
+	var review_title = pop_page.getElementsByTagName("h3")[2];
+	review_title.innerHTML = "Reviews";
+	review_title.style.marginTop = "25px";
+
+	var review_div = pop_page.getElementsByClassName("review_box")[0].getElementsByTagName("div");
+	var review_top = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_top");
+	var review_bottom = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_bottom");
+	var review_num = Object.keys(pop_data['review']).length;
+	for(var i=0; i<5; i++)
+	{
+		review_div[i].className = "";
+	}
+	for(var i=0; i<review_num; i++)
+	{
+		review_div[i].className = "review_showing";
+
+		if(pop_data['review'][i]['rating'] != null)
+		{
+			var rating = "<br>" + "<span style='color:red;'>" + "&#9733;"+ String(pop_data['review'][i]['rating']/2) +
+			"/5</span>";
+		}
+		else
+		{
+			var rating = "";
+		}
+
+		review_top[i].innerHTML = "<span style='font-weight:bold;font-size:15px;'>" + pop_data['review'][i]['username'] + "</span>" +
+		" on " + pop_data['review'][i]['created_at'] + "<br>" + rating;
+		review_bottom[i].innerHTML =  pop_data['review'][i]['content'];
+	}
+
+	pop_page.style.display = "block";
+}
+
+function hide_pop_up()
+{
+	pop_page = document.getElementsByClassName("pop_up")[0];
+	pop_page.style.display = "none";
 }
