@@ -262,19 +262,24 @@ div.search_block
 	top:50px;
 	width:700px;
 	height:50px;
-	font-size: 10px;
+	font-size: 12px;
 }
 
 .text_box .overview
 {
 	top:110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
 }
 
 .text_box form
 {
 	position:absolute;
 	left:240px;
-	top:220px;
+	top:200px;
 }
 .text_box input
 {
@@ -283,4 +288,97 @@ div.search_block
 	border:none;
 	height:30px;
   	border-radius: 5px;
+}
+
+.pop_up
+{
+	display:none;
+	position:fixed; /*fixed on screen*/
+	z-index: 1;
+	height:auto;
+	width:1200px;
+	left:150px;
+	top:30px;
+	bottom:10px;
+	overflow:auto;
+	background-color: #cacaca;
+}
+
+.close
+{
+	position:fixed;
+	color:#aaaaaa;
+	top:30px;
+	right:200px;
+	font-weight: bold;
+	font-size:30px;
+    cursor: pointer;
+}
+
+.pop_up_content
+{
+	margin-top:10px;
+	margin-left: 200px;
+	width:800px;
+}
+
+.pop_up_content p
+{
+	font-size: 15px;
+	width:100%;
+}
+
+.actor24
+{
+	margin-top:20px;
+	width:100%;
+}
+
+.actor24 div
+{
+	width:185px;
+	float:left;
+	margin-left:10px;
+}
+
+.actor24 p
+{
+	width:100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.review_box
+{
+	width:100%;
+}
+
+.review_showing
+{
+	height:auto;
+	position:relative;
+}
+
+.review_showing:after
+{
+	content:"";
+	display:block;
+	background-color: gray;
+	width:590px;
+	height:2px;
+	margin-top:2px;
+	margin-left:100px;
+	margin-bottom:60px;
+}
+
+.review_showing .review_bottom
+{
+	height:60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
 }
