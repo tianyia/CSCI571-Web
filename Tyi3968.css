@@ -1,1 +1,9 @@
-
+html, body
+{
+	background-color: color:#aaaaaa;
+}
+.link_box
+{
+	border: 2px solid orange;
+	background-color: gray;
+}
