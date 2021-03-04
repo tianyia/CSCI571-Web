@@ -216,7 +216,8 @@ function fill_in_pop_data(pop_data)
 	image.src = "https://image.tmdb.org/t/p/w780" + pop_data['detail']['backdrop_path'];
 
 	var title = pop_page.getElementsByTagName("h3")[0];
-	title.innerHTML = pop_data['detail']['title'];
+	title.innerHTML = pop_data['detail']['title'] + "  <a style='color:red;text-decoration: none;' target='_blank' href='"
+	+ pop_data['detail']['link'] + "'>&#9432;</a>";
 
 	var text = pop_page.getElementsByTagName("p");
 	text[0].innerHTML = pop_data['detail']['day'].slice(0,4) + " | " + pop_data['detail']['genres'] + "<br><br>" + "<span style='color:red;'>" + 
