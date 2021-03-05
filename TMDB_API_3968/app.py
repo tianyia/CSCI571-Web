@@ -5,8 +5,12 @@ import requests
 import json
 
 #create Flask's app object
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='',static_folder='static')
 CORS(app)
+
+@app.route("/index.html")
+def send_html:
+	return app.send_static_file('TMDB_API.html')
 
 #execute this function when a user visits app domain at given route
 #stacking multiple routes here for 1 function is possible
