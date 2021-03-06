@@ -166,10 +166,15 @@ function create_search_result(search_data)
 				var score = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("p")[0];
 				var text = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("p")[1];
 
-				score.innerHTML = search_data[i]['day'].slice(0,4) + " | " + search_data[i]['genre_ids'] + "<br>" + "<span style='color:red;'>" + 
+				var day = search_data[i]['day'].slice(0,4) || "N/A";
+				var genre = search_data[i]['genre_ids'] || "N/A";
+				score.innerHTML = day + " | " + genre + "<br>" + "<span style='color:red;'>" + 
 				"&#9733;" + search_data[i]['vote_average'] + "/5</span>" + "  " + search_data[i]['vote_count'] + " votes";
 
-				text.innerHTML = search_data[i]['overview'];
+				var overview = search_data[i]['overview'];
+				if(overview == "")
+					overview = "N/A";
+				text.innerHTML = overview;
 
 				//assign class(movie or tv) and id(movie id or tv id) to button attribute
 				var button = content[i].getElementsByClassName("text_box")[0].getElementsByTagName("input")[0];
@@ -223,10 +228,13 @@ function fill_in_pop_data(pop_data)
 	+ pop_data['detail']['link'] + "'>&#9432;</a>";
 
 	var text = pop_page.getElementsByTagName("p");
-	text[0].innerHTML = pop_data['detail']['day'].slice(0,4) + " | " + pop_data['detail']['genres'] + "<br><br>" + "<span style='color:red;'>" + 
+
+	var day = pop_data['detail']['day'].slice(0,4) || "N/A";
+	var genre = pop_data['detail']['genres'] || "N/A";
+	text[0].innerHTML = day + " | " +genre + "<br><br>" + "<span style='color:red;'>" + 
 				"&#9733;" + pop_data['detail']['vote_average'] + "/5</span>" + "  " + pop_data['detail']['vote_count'] + " votes";
-	text[1].innerHTML = pop_data['detail']['overview'];
-	text[2].innerHTML = "Spoken languages: " + pop_data['detail']['spoken_languages'];
+	text[1].innerHTML = pop_data['detail']['overview'] || "N/A";
+	text[2].innerHTML = "Spoken languages: " + (pop_data['detail']['spoken_languages'] || "N/A");
 
 	var cast = pop_page.getElementsByTagName("h3")[1];
 	cast.innerHTML = "Cast";
@@ -235,6 +243,7 @@ function fill_in_pop_data(pop_data)
 	var actor = pop_page.getElementsByClassName("actor24")[0];
 	var actor_profile = actor.getElementsByTagName("img");
 	var actor_des = actor.getElementsByTagName("p");
+	var no_actor = actor.getElementsByTagName("h4")[0];
 	var actor_num = Object.keys(pop_data['credit']).length;
 	for(var i=0; i<actor_num; i++)
 	{
@@ -244,15 +253,20 @@ function fill_in_pop_data(pop_data)
 		actor_des[i].innerHTML = "<span style='font-weight:bold;''>" + pop_data['credit'][i]['name'] + "</span>" + "<br>" + "AS" 
 		+ "<br>" + pop_data['credit'][i]['character'];
 	}
+	if(actor_num == 0)
+	{
+		no_actor.style.display = "block";
+	}
 
+	//review section
 	var review_title = pop_page.getElementsByTagName("h3")[2];
 	review_title.innerHTML = "Reviews";
 	review_title.style.marginTop = "25px";
 
-	//review section
 	var review_div = pop_page.getElementsByClassName("review_box")[0].getElementsByTagName("div");
 	var review_top = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_top");
 	var review_bottom = pop_page.getElementsByClassName("review_box")[0].getElementsByClassName("review_bottom");
+	var no_review = pop_page.getElementsByClassName("review_box")[0].getElementsByTagName("h4")[0];
 	var review_num = Object.keys(pop_data['review']).length;
 	for(var i=0; i<5; i++)
 	{
@@ -276,6 +290,10 @@ function fill_in_pop_data(pop_data)
 		" on " + pop_data['review'][i]['created_at'] + "<br>" + rating;
 		review_bottom[i].innerHTML =  pop_data['review'][i]['content'];
 	}
+	if(review_num == 0)
+	{
+		no_review.style.display = "block";
+	}
 
 	pop_page.style.display = "block";
 }
@@ -287,6 +305,10 @@ function hide_pop_up()
 	var actor = pop_page.getElementsByClassName("actor24")[0];
 	var actor_profile = actor.getElementsByTagName("img");
 	var actor_des = actor.getElementsByTagName("p");
+
+	var no_actor = actor.getElementsByTagName("h4")[0];
+	var no_review = pop_page.getElementsByClassName("review_box")[0].getElementsByTagName("h4")[0];
+
 	for(var i=0; i<8; i++)
 	{
 		actor_profile[i].removeAttribute("src");
@@ -299,6 +321,9 @@ function hide_pop_up()
 	{
 		review_div[i].className = "review_hiding";
 	}
+
+	no_actor.style.display = "none";
+	no_review.style.display = "none";
 
 	pop_page.style.display = "none";
 }
