@@ -8,7 +8,7 @@ import json
 app = Flask(__name__,static_url_path='',static_folder='static')
 CORS(app)
 
-@app.route("/index.html")
+@app.route("/")
 def send_html():
 	return app.send_static_file('TMDB_API.html')
 
