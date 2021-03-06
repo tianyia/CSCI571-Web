@@ -79,8 +79,7 @@ def search(category, keyword):
 		for i in range(number):
 
 			new_genre = ""
-			for item in raw_data['results'][i]['genre_ids']:
-				new_genre += " " + genre_list[item]
+			new_genre = ", ".join( [ genre_list[x] for x in raw_data['results'][i]['genre_ids'] ] )
 
 			raw_data['results'][i]['vote_average'] = str(float(raw_data['results'][i]['vote_average'])/2)
 			raw_data['results'][i]['vote_count'] = str(raw_data['results'][i]['vote_count'])
@@ -114,8 +113,7 @@ def search(category, keyword):
 				genre_list = tv_genre_dict
 
 			new_genre = ""
-			for item in raw_data['results'][i]['genre_ids']:
-				new_genre += " " + genre_list[item]
+			new_genre = ", ".join( [ genre_list[x] for x in raw_data['results'][i]['genre_ids'] ] )
 
 			filtered_data[i]['vote_average'] = str(float(filtered_data[i]['vote_average'])/2)
 			filtered_data[i]['vote_count'] = str(filtered_data[i]['vote_count'])
@@ -168,7 +166,7 @@ def get_pop_data(category, id):
 	data['detail']['title'] = raw_detail[title]
 	data['detail']['backdrop_path'] = raw_detail['backdrop_path']
 	data['detail']['day'] = raw_detail[day]
-	data['detail']['genres'] = " ".join(x['name'] for x in raw_detail['genres'])
+	data['detail']['genres'] = ", ".join(x['name'] for x in raw_detail['genres'])
 	data['detail']['vote_average'] = str(float(raw_detail['vote_average'])/2)
 	data['detail']['vote_count'] = str(raw_detail['vote_count'])
 	data['detail']['spoken_languages'] = " ".join(x['english_name'] for x in raw_detail['spoken_languages'])
