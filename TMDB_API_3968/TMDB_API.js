@@ -55,7 +55,7 @@ function get_home_pics()
     }
   };
 
-  xhttp.open("GET", "http://127.0.0.1:5000/home", true);
+  xhttp.open("GET", "/home", true);
   xhttp.send();
 }
 get_home_pics();
@@ -126,7 +126,7 @@ function search_result(keyword, Category)
 
   		//var new_keyword = keyword.replace(/ /g, "%20"); //replace all occurences of space with %20
 
-  		xhttp.open("GET", "http://127.0.0.1:5000/search"+"/"+Category+"/"+keyword, true);
+  		xhttp.open("GET", "/search"+"/"+Category+"/"+keyword, true);
   		xhttp.send();
 	}
 }
@@ -209,7 +209,7 @@ function pop_up_result(type, id)
     	}
   	};
 
-  	xhttp.open("GET", "http://127.0.0.1:5000/pop"+"/"+type+"/"+id, true);
+  	xhttp.open("GET", "/pop"+"/"+type+"/"+id, true);
   	xhttp.send();
 }
 
