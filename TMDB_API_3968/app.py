@@ -193,5 +193,5 @@ def get_pop_data(category, id):
 
 	return jsonify(data)
 
-
-app.run()
+#app.run will cause "Container didn't respond to HTTP pings on port: 8000, failing site start" error
+#app.run()
