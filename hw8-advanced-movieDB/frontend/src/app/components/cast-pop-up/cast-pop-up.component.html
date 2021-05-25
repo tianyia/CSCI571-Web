@@ -1,0 +1,48 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{cast_detail_data.name}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="image_container">
+    <img [src] = "'https://image.tmdb.org/t/p/w500/' + cast_data['profile_path']">
+  </div>
+  <div class="text_box1">
+    <p *ngIf="cast_detail_data['birthday']">Birth: {{cast_detail_data['birthday']}}</p>
+    <p *ngIf="cast_detail_data['place_of_birth']">Birth Place: {{cast_detail_data['place_of_birth']}}</p>
+    <p *ngIf="cast_detail_data['gender']">Gender: {{gender}}</p>
+    <p *ngIf="cast_detail_data['homepage']">Website: <a target="_blank" href="{{cast_detail_data['homepage']}}">{{cast_detail_data['homepage']}}</a></p>
+    <p *ngIf="cast_detail_data['known_for_department']">Known for: {{cast_detail_data['known_for_department']}}</p>
+    <p *ngIf="cast_detail_data['also_known_as']">Also known as: {{cast_detail_data['also_known_as']}}</p>
+
+    <a class="link_button" target="_blank" *ngIf="cast_detail_data['imdb_id']"
+      href="https://imdb.com/name/{{cast_detail_data['imdb_id']}}">
+      <i class="fab fa-imdb" style="color:#e8b42c;font-size: 5vh; margin-left:1vh;"
+      ngbPopover="Visit IMDB" triggers="mouseenter:mouseleave">
+      </i>
+    </a>
+    <a class="link_button" target="_blank" *ngIf="cast_detail_data['instagram_id']"
+      href="https://instagram.com/{{cast_detail_data['instagram_id']}}">
+      <i class="fab fa-instagram" style="color:#800080;font-size: 5vh; margin-left:1vh;"
+      ngbPopover="Visit Instagram" triggers="mouseenter:mouseleave"></i>
+    </a>
+    <a class="link_button" target="_blank" *ngIf="cast_detail_data['facebook_id']"
+    href="https://www.facebook.com/{{cast_detail_data['facebook_id']}}">
+    <i class="fab fa-facebook-square" style="color:#0804fc;font-size: 5vh; margin-left:1vh;"
+    ngbPopover="Visit Facebook" triggers="mouseenter:mouseleave"></i>
+    </a>
+    <a class="link_button" target="_blank" *ngIf="cast_detail_data['twitter_id']"
+      href="https://twitter.com/{{cast_detail_data['twitter_id']}}">
+      <i class="fab fa-twitter" style="color:#506cf4;font-size: 5vh; margin-left:1vh;"
+      ngbPopover="Visit Twitter" triggers="mouseenter:mouseleave"></i>
+    </a>
+  </div>
+  <div class="text_box2" style="clear:both;">
+    <h4>Biography</h4>
+    <p *ngIf="cast_detail_data['biography']">{{cast_detail_data['biography']}}</p>
+  </div>
+</div>
+<!-- <div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div> -->
