@@ -1,0 +1,120 @@
+<div class="detail_container">
+  <div style="width:80vw;margin-bottom:5vh;">
+  <div *ngIf="!mobile_version" class="embed-responsive embed-responsive-16by9" style="width:65%;min-width:300px;float:left;margin-right:1vw;">
+    <youtube-player
+      [videoId]=trailer_key
+      suggestedQuality="highres"
+      [startSeconds]="0">
+    </youtube-player>
+  </div>
+  <div *ngIf="mobile_version" class="embed-responsive embed-responsive-16by9" style="width:100%;float:left;margin-right:1vw;margin-bottom:5vh;">
+    <youtube-player
+      [videoId]=trailer_key
+      suggestedQuality="highres"
+      [startSeconds]="0">
+    </youtube-player>
+  </div>
+  <div class="text1">
+    <h2>{{detail_data['detail']['title']}}</h2>
+    <br *ngIf="detail_data['detail']['tagline']">
+    <p>{{detail_data['detail']['tagline']}}</p>
+    <br>
+    <p>{{detail_data['detail']['release_date'].slice(0,4)}}&nbsp;&nbsp;|&nbsp;&nbsp;&#9733;{{detail_data['detail']['vote_average']}}
+      &nbsp;&nbsp;|&nbsp;&nbsp;{{detail_data['detail']['runtime']}}mins
+    </p>
+    <br>
+    <p *ngIf="detail_data['detail']['genres']">Genres:&nbsp;&nbsp;{{detail_data['detail']['genres']}}</p>
+    <p *ngIf="detail_data['detail']['spoken_languages']">Spoken Languages:&nbsp;&nbsp;{{detail_data['detail']['spoken_languages']}}</p>
+
+    <br>
+
+    <button type="button" class="btn btn-outline-secondary mr-2" (click)="button_click()" style="color:white;background-color: #007bfb;">
+    {{button_text}}
+    </button>
+    <ngb-alert *ngIf="alert_text" [type]="alert_type" (closed)="alert_text=''">{{ alert_text }}</ngb-alert>
+
+  </div>
+  </div>
+  <div class="text2" style="position:relative; clear: both;">
+    <br *ngIf="detail_data['detail']['overview']">
+    <h5 *ngIf="detail_data['detail']['overview']">Description</h5>
+    <p style="color:lightgray;">{{detail_data['detail']['overview']}}</p>
+    <br>
+    <h5>Share</h5>
+    <a class="twitter-share-button" target="_blank"
+      href="https://twitter.com/intent/tweet?text=Watch%20{{detail_data['detail']['title']}}%0D%0Ahttps://youtu.be/{{trailer_key}}%0D%0A%23USC%20%23CSCI571%20%23FightOn">
+      <i class="fab fa-twitter" style="color:#506cf4;font-size: 5vh;">
+      </i>
+    </a>
+    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" style="display:inline;position:absolute;margin-left:-1vh;margin-bottom:1vh;"
+    data-layout="button_count" data-size="small">
+    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/{{trailer_key}}"
+    class="fb-xfbml-parse-ignore">
+    <i class="fab fa-facebook-square" style="color:#0804fc;font-size: 5vh; margin-left:2vh;"></i>
+    </a>
+    </div>
+
+  </div>
+  <div class="cast">
+    <h3>Full Cast and Crew</h3>
+    <div class="scroll" *ngIf="!mobile_version">
+      <!-- ngfor loop the tag itself -->
+      <div *ngFor = "let item of detail_data['cast']" class="col-sm-2" (click)="open_Modal(item)">
+        <div class="card" style="border: none; cursor: pointer;">
+          <img [src]="'https://image.tmdb.org/t/p/w500/' + item['profile_path']" class="card-img" alt="Card image">
+          <p class="card-text">
+            <span style="font-weight: bold;">{{item['name']}}</span>
+            <br>
+            <span style="font-weight: bold;">AS</span>
+            <br>
+            {{item['character']}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="scroll" *ngIf="mobile_version">
+      <!-- ngfor loop the tag itself -->
+      <div *ngFor = "let item of detail_data['cast']" class="col-sm-2" (click)="open_Modal(item)" style="width:45%;">
+        <div class="card" style="border: none; cursor: pointer;">
+          <img [src]="'https://image.tmdb.org/t/p/w500/' + item['profile_path']" class="card-img" alt="Card image">
+          <p class="card-text">
+            <span style="font-weight: bold; font-size:1vw;">{{item['name']}}</span>
+            <br>
+            <span style="font-weight: bold; font-size:1vw;">AS</span>
+            <br>
+            <span style="font-size:1vw;">{{item['character']}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="review">
+    <br *ngIf="detail_data['review'].length>0">
+    <h3 style="color:white;" *ngIf="detail_data['review'].length>0">Reviews&nbsp;&nbsp;<span>{{detail_data['review'].length}}</span></h3>
+    <div class="review_box" *ngFor="let review of detail_data['review']">
+      <div class="review_image">
+        <img [src]="review['avatar_path']" style="width:5vw;height:5vw;border-radius: 50%;">
+      </div>
+      <div class="review_text">
+        <h5>A review created by {{review['author']}}<div class="star">&#9733;&nbsp;{{review['rating']?review['rating']:0}}</div></h5>
+        <br>
+        <p style="color:gray">Written by {{review['author']}} on {{review['created_at']}}</p>
+        <p class="review_content">{{review['content']}}</p>
+        <br>
+        <a target="_blank" href="{{review['url']}}" class="review_link">
+          Read the rest
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<div *ngIf="detail_data['recommend'].length>0">
+  <p class="description">Recommended Movies</p>
+  <app-carousel [selected_data] = "detail_data['recommend']"></app-carousel>
+</div>
+<div *ngIf="detail_data['similar'].length>0">
+  <p class="description">Similar Movies</p>
+  <app-carousel [selected_data] = "detail_data['similar']"></app-carousel>
+</div>
