@@ -1,0 +1,33 @@
+<div class="mylist">
+  <h3 style="color:white">My WatchList</h3>
+  <h3 *ngIf="mylist_data.length<1" style="text-align:center;color:white;">No items found in Watchlist</h3>
+
+  <div class="row" *ngIf="mylist_data.length>0 && !mobile_version">
+    <div *ngFor = "let item of mylist_data" class="col-sm-2" style="margin-top:5%;">
+      <div class="card text-white" style="border: none;">
+        <a  [routerLink] = "['/watch', item['type'], item['id']]">
+          <img *ngIf="item['poster_path']" [src]="'https://image.tmdb.org/t/p/w500/' + item['poster_path']" class="card-img" alt="Card image">
+          <img *ngIf="!item['poster_path']" [src]="'assets/movie_placeholder.png'" class="card-img" alt="Card image">
+          <div class="text_container">
+            <p class="text">{{item['title']}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="mylist_data.length>0 && mobile_version">
+    <div *ngFor = "let item of mylist_data" class="col-sm-2" style="margin-top:10%;width:50%;margin-left:25%;">
+      <div class="card text-white" style="border: none;">
+        <a  [routerLink] = "['/watch', item['type'], item['id']]">
+          <img *ngIf="item['poster_path']" [src]="'https://image.tmdb.org/t/p/w500/' + item['poster_path']" class="card-img" alt="Card image">
+          <img *ngIf="!item['poster_path']" [src]="'assets/movie_placeholder.png'" class="card-img" alt="Card image">
+          <div class="text_container" style="display:block;">
+            <p class="text">{{item['title']}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
