@@ -1,0 +1,11 @@
+create virtual env
+py -3 -m venv venv
+
+activate virtual venv
+venv\Scripts\activate
+
+in current directory
+set FLASK_APP=TMDB_API.py
+flask run
+
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_PORT=8000
