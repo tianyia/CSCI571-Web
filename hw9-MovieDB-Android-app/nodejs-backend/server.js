@@ -10,7 +10,7 @@ app.use(cors());
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'dist/frontend')))
 
-const api_key = "8a0b6981e7cb027bc7840f9e005cddc0";
+const api_key = "";//API key hidden
 
 //Home page route
 app.get('/apis', function(req, res) {
