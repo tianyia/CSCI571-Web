@@ -16,9 +16,9 @@ def send_html():
 #stacking multiple routes here for 1 function is possible
 @app.route("/home")
 def hello():
-	trending_url = "https://api.themoviedb.org/3/trending/movie/week?api_key=8a0b6981e7cb027bc7840f9e005cddc0"
+	trending_url = "https://api.themoviedb.org/3/trending/movie/week?api_key=" #API key hidden
 	trending = json.loads(requests.get(trending_url).text)
-	today_url = "https://api.themoviedb.org/3/tv/airing_today?api_key=8a0b6981e7cb027bc7840f9e005cddc0"
+	today_url = "https://api.themoviedb.org/3/tv/airing_today?api_key="#API key hidden
 	today = json.loads(requests.get(today_url).text)
 
 	i = 0
@@ -45,8 +45,8 @@ def search(category, keyword):
 	data = []
 	i = 0
 
-	movie_genre = json.loads(requests.get("https://api.themoviedb.org/3/genre/movie/list?api_key=8a0b6981e7cb027bc7840f9e005cddc0&language=en-US").text)
-	tv_genre = json.loads(requests.get("https://api.themoviedb.org/3/genre/tv/list?api_key=8a0b6981e7cb027bc7840f9e005cddc0&language=en-US").text)
+	movie_genre = json.loads(requests.get("https://api.themoviedb.org/3/genre/movie/list?api_key=&language=en-US").text)#API key hidden
+	tv_genre = json.loads(requests.get("https://api.themoviedb.org/3/genre/tv/list?api_key=&language=en-US").text)#API key hidden
 	movie_genre_dict = {}
 	tv_genre_dict = {}
 
@@ -55,11 +55,12 @@ def search(category, keyword):
 	for item in tv_genre['genres']:
 		tv_genre_dict[item['id']] = item['name']
 
-	search_url.append("https://api.themoviedb.org/3/search/movie?api_key=8a0b6981e7cb027bc7840f9e005cddc0&query="+
+	#API key hidden
+	search_url.append("https://api.themoviedb.org/3/search/movie?api_key=&query="+
 		keyword +"&language=en-US&page=1&include_adult=false")
-	search_url.append("https://api.themoviedb.org/3/search/tv?api_key=8a0b6981e7cb027bc7840f9e005cddc0&language=en-US&page=1&query="+
+	search_url.append("https://api.themoviedb.org/3/search/tv?api_key=&language=en-US&page=1&query="+
 		keyword + "&include_adult=false")
-	search_url.append("https://api.themoviedb.org/3/search/multi?api_key=8a0b6981e7cb027bc7840f9e005cddc0&language=en-US&query="+
+	search_url.append("https://api.themoviedb.org/3/search/multi?api_key=&language=en-US&query="+
 		keyword + "&page=1&include_adult=false")
 
 	if category == "movie" or category == "tv":
@@ -136,7 +137,7 @@ def search(category, keyword):
 
 @app.route("/pop/<category>/<id>")
 def get_pop_data(category, id):
-	api_key = "api_key=8a0b6981e7cb027bc7840f9e005cddc0"
+	api_key = "api_key="#API key hidden
 	movie_url = "https://api.themoviedb.org/3/movie/" + id + "?" + api_key + "&language=en-US"
 	movie_credit_url = "https://api.themoviedb.org/3/movie/" + id + "/credits?" + api_key + "&language=en-US&language=en-US"
 	movie_review_url = "https://api.themoviedb.org/3/movie/" + id + "/reviews?" + api_key + "&language=en-US&page=1"
